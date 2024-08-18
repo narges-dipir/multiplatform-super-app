@@ -5,6 +5,7 @@ import kotlinx.datetime.Instant
 import kotlinx.datetime.LocalDateTime
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
+import kotlin.math.abs
 
 class TimeZoneHelperImpl: TimeZoneHelper {
 
@@ -24,7 +25,13 @@ class TimeZoneHelperImpl: TimeZoneHelper {
     }
 
     override fun hoursFromTimeZone(otherTimeZoneId: String): Double {
-        TODO("Not yet implemented")
+        val currentTimeZone = TimeZone.currentSystemDefault()
+        val currentUTCInstant: Instant = Clock.System.now()
+        // Date time in other timezone
+        val otherTimeZone = TimeZone.of(otherTimeZoneId)
+        val currentDateTime: LocalDateTime = currentUTCInstant.toLocalDateTime(currentTimeZone)
+        val currentOtherDateTime: LocalDateTime = currentUTCInstant.toLocalDateTime(otherTimeZone)
+        return abs((currentDateTime.hour - currentOtherDateTime.hour) * 1.0)
     }
 
     override fun getTime(timeZoneId: String): String {
