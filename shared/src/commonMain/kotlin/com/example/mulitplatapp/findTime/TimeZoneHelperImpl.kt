@@ -1,9 +1,11 @@
 package com.example.mulitplatapp.findTime
 
+import kotlinx.datetime.TimeZone
+
 class TimeZoneHelperImpl: TimeZoneHelper {
 
     override fun getTimeZoneStrings(): List<String> {
-        TODO("Not yet implemented")
+        return TimeZone.availableZoneIds.sorted()
     }
 
     override fun currentTime(): String {
