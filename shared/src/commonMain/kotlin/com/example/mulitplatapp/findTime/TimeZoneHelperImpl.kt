@@ -19,7 +19,8 @@ class TimeZoneHelperImpl: TimeZoneHelper {
     }
 
     override fun currentTimeZone(): String {
-        TODO("Not yet implemented")
+        val currentTimeZone = TimeZone.currentSystemDefault()
+        return currentTimeZone.toString()
     }
 
     override fun hoursFromTimeZone(otherTimeZoneId: String): Double {
