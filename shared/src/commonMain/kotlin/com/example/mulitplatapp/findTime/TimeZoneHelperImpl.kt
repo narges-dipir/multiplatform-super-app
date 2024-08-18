@@ -34,7 +34,11 @@ class TimeZoneHelperImpl: TimeZoneHelper {
     }
 
     override fun getDate(timeZoneId: String): String {
-        TODO("Not yet implemented")
+        val timeZone = TimeZone.of(timeZoneId)
+        val currentMoment: Instant = Clock.System.now()
+        val dateTime: LocalDateTime = currentMoment.toLocalDateTime(timeZone)
+        return "${dateTime.dayOfWeek.name.lowercase().replaceFirstChar { it.uppercase() }}, " +
+                "${dateTime.month.name.lowercase().replaceFirstChar { it.uppercase() }} ${dateTime.date.dayOfMonth}"
     }
 
     override fun search(startHour: Int, endHour: Int, timeZoneString: List<String>): List<Int> {
