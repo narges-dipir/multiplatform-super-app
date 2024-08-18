@@ -27,7 +27,10 @@ class TimeZoneHelperImpl: TimeZoneHelper {
     }
 
     override fun getTime(timeZoneId: String): String {
-        TODO("Not yet implemented")
+      val timeZone = TimeZone.of(timeZoneId)
+        val currentMoment: Instant = Clock.System.now()
+        val dateTime: LocalDateTime = currentMoment.toLocalDateTime(timeZone)
+        return formatDateTime(dateTime)
     }
 
     override fun getDate(timeZoneId: String): String {
