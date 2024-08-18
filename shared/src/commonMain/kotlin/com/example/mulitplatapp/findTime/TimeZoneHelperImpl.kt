@@ -1,7 +1,10 @@
 package com.example.mulitplatapp.findTime
 
+import kotlinx.datetime.Clock
+import kotlinx.datetime.Instant
 import kotlinx.datetime.LocalDateTime
 import kotlinx.datetime.TimeZone
+import kotlinx.datetime.toLocalDateTime
 
 class TimeZoneHelperImpl: TimeZoneHelper {
 
@@ -10,7 +13,9 @@ class TimeZoneHelperImpl: TimeZoneHelper {
     }
 
     override fun currentTime(): String {
-        TODO("Not yet implemented")
+        val currentMoment: Instant = Clock.System.now()
+        val dateTime: LocalDateTime = currentMoment.toLocalDateTime(TimeZone.currentSystemDefault())
+        return formatDateTime(dateTime)
     }
 
     override fun currentTimeZone(): String {
