@@ -3,8 +3,13 @@ package com.example.mulitplatapp.android.ui
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.rounded.Info
 import androidx.compose.material.icons.rounded.Place
+import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.FloatingActionButtonDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -13,6 +18,7 @@ import androidx.compose.runtime.snapshots.Snapshot
 import androidx.compose.runtime.snapshots.SnapshotStateList
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.unit.dp
 import com.example.mulitplatapp.android.MyApplicationTheme
 
 
@@ -49,10 +55,21 @@ fun MapView(
     MyApplicationTheme {
         Scaffold(
             topBar = {
-
+                actionBarFun(selectedIndex.value)
             },
             floatingActionButton = {
-
+            if (selectedIndex.value == 0) {
+             FloatingActionButton(
+                 modifier = Modifier.padding(16.dp),
+                 shape = FloatingActionButtonDefaults.largeShape,
+                 containerColor = MaterialTheme.colorScheme.secondary,
+                 onClick = {
+                           showAddDialog.value = true
+                 }
+             ) {
+              Icon(imageVector = Icons.Default.Add, contentDescription = "Add timezone")
+             }
+            }
             },
             bottomBar = {
 
