@@ -2,7 +2,6 @@ package com.example.mulitplatapp.android.ui
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Info
-import androidx.compose.material.icons.rounded.Person
 import androidx.compose.material.icons.rounded.Place
 import androidx.compose.ui.graphics.vector.ImageVector
 
