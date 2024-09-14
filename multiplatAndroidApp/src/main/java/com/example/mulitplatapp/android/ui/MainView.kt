@@ -20,5 +20,4 @@ data class BottomItem(
 val bottomNavigationItems = listOf(
     BottomItem(Screen.TimeZonesScreen.title, Icons.Rounded.Info, "Timezones"),
     BottomItem(Screen.AddTimeZoneScreen.title, Icons.Rounded.Place, "Find Time")
-
 )
