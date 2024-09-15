@@ -10,13 +10,18 @@ import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.FloatingActionButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.snapshots.Snapshot
 import androidx.compose.runtime.snapshots.SnapshotStateList
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 import com.example.mulitplatapp.android.MyApplicationTheme
@@ -72,7 +77,27 @@ fun MapView(
             }
             },
             bottomBar = {
+            NavigationBar(containerColor = MaterialTheme.colorScheme.primary) {
+                bottomNavigationItems.forEachIndexed { i, bottomNavigationItem ->
+                    NavigationBarItem(
+                        colors = NavigationBarItemDefaults.colors(
+                            selectedIconColor = Color.White,
+                            selectedTextColor = Color.White,
+                            unselectedIconColor = Color.Black,
+                            unselectedTextColor = Color.Black,
+                            indicatorColor = MaterialTheme.colorScheme.primary
+                        ),
+                            selected = selectedIndex.value  == i,
+                            onClick = { selectedIndex.value = i },
+                            icon = { Icon(imageVector = bottomNavigationItem.icon, contentDescription = bottomNavigationItem.iconContentDescription) },
+                            label = { Text(
+                                text = bottomNavigationItem.route,
+                                style = MaterialTheme.typography.bodyMedium
+                            )}
+                    )
+                }
 
+            }
             },
         ) { padding ->
             Box(modifier = Modifier.padding(padding)) {
