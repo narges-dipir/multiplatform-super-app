@@ -101,7 +101,10 @@ fun MainView(
             },
         ) { padding ->
             Box(modifier = Modifier.padding(padding)) {
-
+                when (selectedIndex.value) {
+                    0 -> TimeZoneScreen(currentTimezoneStrings)
+//                    1 -> AddTimeZoneScreen(showAddDialog)
+                }
             }
         }
     }

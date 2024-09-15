@@ -60,6 +60,7 @@ fun LocalTimeCard(city: String, time: String, date: String) {
                         Text(text = city, style = MaterialTheme.typography.headlineSmall)
                         Spacer(modifier = Modifier.height(8.dp))
                     }
+                    Spacer(modifier = Modifier.weight(1.0f))
                     Column(
                         horizontalAlignment = Alignment.End
                     ) {
