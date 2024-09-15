@@ -44,7 +44,7 @@ val bottomNavigationItems = listOf(
 )
 
 @Composable
-fun MapView(
+fun MainView(
     actionBarFun: topBarFun = { EmptyComposable() }
 ) {
     val showAddDialog = remember {
