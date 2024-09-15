@@ -53,5 +53,6 @@ dependencies {
     implementation(libs.compose.material3)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.compose.bom))
+    implementation(libs.napier)
     debugImplementation(libs.compose.ui.tooling)
 }
